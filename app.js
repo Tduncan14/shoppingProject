@@ -14,3 +14,7 @@ const productsDom = document.querySelector('.products-center');
 // this will be our main cart
 let cart = [];
 
+
+class Products {
+
+}
