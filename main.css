@@ -109,7 +109,7 @@
 
 /* ---------------End of Products ---------------- */
 /* --------------- Cart ---------------- */
-/* .cart-overlay {
+.cart-overlay {
   position: fixed;
   top: 0;
   right: 0;
@@ -132,7 +132,7 @@
   padding: 1.5rem;
   transition: var(--mainTransition);
   transform: translateX(100%);
-} */
+}
 .showCart {
   transform: translateX(0);
 }
