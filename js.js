@@ -1,61 +1,28 @@
-const client = contentful.createClient({
-    // This is the space ID. A space is like a project folder in Contentful terms
-    space: "hvfiwwrtmfh0",
-    // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-    accessToken: "e6c47b438fb3f785f389b6591cd2c376a187b7e2c87f3967bcce9eb87cda4708"
-  });
-  // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
- 
-
-
-
-console.log(client);
-
-
-// variables
-
-
-const cartBtn = document.querySelector('.cart-btn');
-const closeCartBtn = document.querySelector('.close-cart');
-const clearCartBtn = document.querySelector('.clear-cart');
-const cartDOM = document.querySelector('.cart');
-const cartOverlay = document.querySelector('.cart-overlay');
-const cartItems = document.querySelector('.cart-items');
-const cartTotal = document.querySelector('.cart-total');
-const cartContent = document.querySelector('.cart-content');
-const productsDOM = document.querySelector('.products-center');
-
-// const btns = document.querySelectorAll('.bag-btn')
-// console.log(btns);
-// this will be our main cart
-// products
-
-
-
+/ variables
+const cartBtn = document.querySelector(".cart-btn");
+const closeCartBtn = document.querySelector(".close-cart");
+const clearCartBtn = document.querySelector(".clear-cart");
+const cartDOM = document.querySelector(".cart");
+const cartOverlay = document.querySelector(".cart-overlay");
+const cartItems = document.querySelector(".cart-items");
+const cartTotal = document.querySelector(".cart-total");
+const cartContent = document.querySelector(".cart-content");
+const productsDOM = document.querySelector(".products-center");
 let cart = [];
 
 // products
 class Products {
   async getProducts() {
     try {
-     
-        let contentful = await client.getEntries({
-            content_type :"comfyproduct"
-        });
-
-        console.log(contentful);
-   
-
-
-    //   let result = await fetch("products.json");
-    //   let data = await result.json();
+      let result = await fetch("products.json");
+      let data = await result.json();
       // let contentful = await client.getEntries({
       //   content_type: "comfyHouseProducts"
       // });
       // console.log(contentful.items);
       // console.log(data);
 
-      let products = contentful.items;
+      let products = data.items;
       products = products.map(item => {
         const { title, price } = item.fields;
         const { id } = item.sys;
